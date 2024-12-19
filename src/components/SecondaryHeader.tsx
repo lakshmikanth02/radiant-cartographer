@@ -1,5 +1,4 @@
 import { Laptop, Smartphone, Watch, Headphones, Camera, Gamepad, Tv, Speaker } from "lucide-react";
-import { cn } from "@/lib/utils";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -166,7 +165,7 @@ export function SecondaryHeader() {
                 <category.icon className="h-4 w-4" />
                 {category.name}
               </NavigationMenuTrigger>
-              <NavigationMenuContent>
+              <NavigationMenuContent className="z-[100] bg-popover">
                 <div className="grid grid-cols-3 gap-6 p-6 w-[800px]">
                   {category.subcategories.map((subcategory) => (
                     <div key={subcategory.name} className="space-y-2">
