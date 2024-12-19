@@ -9,11 +9,11 @@ const Index = () => {
     <div className="min-h-screen flex flex-col">
       <Header />
       <main className="flex-1">
+        <Hero />
         <div className="container py-8">
-          <Hero />
+          <Categories />
+          <Products />
         </div>
-        <Categories />
-        <Products />
       </main>
       <Footer />
     </div>
