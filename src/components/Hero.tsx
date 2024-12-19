@@ -45,8 +45,8 @@ export function Hero() {
             alt={slide.title}
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 flex items-center container mx-auto px-4">
-            <div className="max-w-xl text-white">
+          <div className="absolute inset-0 flex items-center justify-center text-center">
+            <div className="max-w-xl text-white px-4">
               <h1 className="text-4xl md:text-5xl font-bold mb-4 animate-fade-in">
                 {slide.title}
               </h1>
