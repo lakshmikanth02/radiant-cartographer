@@ -31,7 +31,7 @@ export function Hero() {
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
 
   return (
-    <div className="relative h-[400px] w-screen -mx-[50vw] left-1/2 right-1/2 z-0">
+    <div className="relative h-[300px] md:h-[400px] w-screen -mx-[50vw] left-1/2 right-1/2 z-0">
       {slides.map((slide, index) => (
         <div
           key={slide.id}
@@ -45,12 +45,12 @@ export function Hero() {
             alt={slide.title}
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 flex items-center justify-center text-center">
-            <div className="max-w-xl text-white px-4">
-              <h1 className="text-4xl md:text-5xl font-bold mb-4 animate-fade-in">
+          <div className="absolute inset-0 flex items-center justify-center text-center px-4">
+            <div className="max-w-xl text-white">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2 md:mb-4 animate-fade-in">
                 {slide.title}
               </h1>
-              <p className="text-lg md:text-xl mb-6 animate-fade-in opacity-90">
+              <p className="text-base md:text-lg lg:text-xl mb-4 md:mb-6 animate-fade-in opacity-90">
                 {slide.description}
               </p>
               <Button 
@@ -66,17 +66,17 @@ export function Hero() {
       
       <button
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/20 backdrop-blur-sm flex items-center justify-center text-white transition-colors hover:bg-black/40"
+        className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 rounded-full bg-black/20 backdrop-blur-sm flex items-center justify-center text-white transition-colors hover:bg-black/40"
         aria-label="Previous slide"
       >
-        <ChevronLeft className="h-6 w-6" />
+        <ChevronLeft className="h-4 w-4 md:h-6 md:w-6" />
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/20 backdrop-blur-sm flex items-center justify-center text-white transition-colors hover:bg-black/40"
+        className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 rounded-full bg-black/20 backdrop-blur-sm flex items-center justify-center text-white transition-colors hover:bg-black/40"
         aria-label="Next slide"
       >
-        <ChevronRight className="h-6 w-6" />
+        <ChevronRight className="h-4 w-4 md:h-6 md:w-6" />
       </button>
       
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
@@ -86,7 +86,7 @@ export function Hero() {
             onClick={() => setCurrentSlide(index)}
             className={`w-2 h-2 rounded-full transition-all ${
               index === currentSlide
-                ? "w-8 bg-white"
+                ? "w-6 md:w-8 bg-white"
                 : "bg-white/50 hover:bg-white/75"
             }`}
             aria-label={`Go to slide ${index + 1}`}

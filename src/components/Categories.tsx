@@ -95,14 +95,14 @@ export function Categories() {
   };
 
   return (
-    <section className="py-16">
-      <div className="container">
-        <h2 className="text-3xl font-bold text-center mb-12">Shop by Category</h2>
+    <section className="py-8 md:py-16">
+      <div className="container px-4 md:px-6">
+        <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12">Shop by Category</h2>
         <div className="relative">
           <Button
             variant="outline"
             size="icon"
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10"
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 hidden md:flex"
             onClick={() => scroll('left')}
           >
             <ChevronLeft className="h-4 w-4" />
@@ -110,11 +110,11 @@ export function Categories() {
           
           <div 
             ref={scrollContainerRef}
-            className="flex overflow-x-auto gap-6 px-8 scrollbar-hide snap-x snap-mandatory"
+            className="flex overflow-x-auto gap-4 md:gap-6 px-0 md:px-8 scrollbar-hide snap-x snap-mandatory"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {categories.map((category) => (
-              <div key={category.id} className="flex-none w-64 snap-start">
+              <div key={category.id} className="flex-none w-[280px] md:w-64 snap-start">
                 <div className="group relative aspect-[4/3] rounded-xl overflow-hidden mb-4">
                   <img
                     src={category.image}
@@ -122,13 +122,13 @@ export function Categories() {
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                    <h3 className="text-2xl font-bold text-white">{category.name}</h3>
+                    <h3 className="text-xl md:text-2xl font-bold text-white">{category.name}</h3>
                   </div>
                 </div>
                 <div className="space-y-2">
                   {category.subcategories.map((subcat, index) => (
                     <div key={index} className="space-y-1">
-                      <h4 className="font-semibold text-lg">{subcat.name}</h4>
+                      <h4 className="font-semibold text-base md:text-lg">{subcat.name}</h4>
                       <div className="text-sm text-muted-foreground">
                         {subcat.subcategories.slice(0, 3).join(", ")}
                         {subcat.subcategories.length > 3 && "..."}
@@ -143,7 +143,7 @@ export function Categories() {
           <Button
             variant="outline"
             size="icon"
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10"
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 hidden md:flex"
             onClick={() => scroll('right')}
           >
             <ChevronRight className="h-4 w-4" />

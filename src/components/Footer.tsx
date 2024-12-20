@@ -5,8 +5,8 @@ import { Facebook, Twitter, Instagram, Youtube } from "lucide-react";
 export function Footer() {
   return (
     <footer className="bg-muted/50 border-t">
-      <div className="container py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+      <div className="container py-8 md:py-16 px-4 md:px-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
           <div>
             <h3 className="text-lg font-semibold mb-4">About Us</h3>
             <p className="text-muted-foreground">
@@ -60,17 +60,17 @@ export function Footer() {
             <p className="text-muted-foreground mb-4">
               Subscribe to our newsletter for updates and exclusive offers.
             </p>
-            <div className="flex gap-2">
+            <div className="flex flex-col sm:flex-row gap-2">
               <Input
                 type="email"
                 placeholder="Enter your email"
-                className="max-w-[220px]"
+                className="min-w-[200px]"
               />
               <Button>Subscribe</Button>
             </div>
           </div>
         </div>
-        <div className="border-t mt-12 pt-8 text-center text-muted-foreground">
+        <div className="border-t mt-8 md:mt-12 pt-8 text-center text-muted-foreground">
           <p>&copy; 2024 Store. All rights reserved.</p>
         </div>
       </div>

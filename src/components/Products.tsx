@@ -30,10 +30,10 @@ const products = [
 
 export function Products() {
   return (
-    <section className="py-16 bg-muted/50">
-      <div className="container">
-        <h2 className="text-3xl font-bold text-center mb-12">Featured Products</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <section className="py-8 md:py-16 bg-muted/50">
+      <div className="container px-4 md:px-6">
+        <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12">Featured Products</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {products.map((product) => (
             <div key={product.id} className="product-card">
               <div className="aspect-square rounded-xl overflow-hidden mb-4">
@@ -43,8 +43,8 @@ export function Products() {
                   className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                 />
               </div>
-              <h3 className="text-lg font-semibold mb-2">{product.name}</h3>
-              <p className="text-xl font-bold text-primary mb-4">
+              <h3 className="text-base md:text-lg font-semibold mb-2">{product.name}</h3>
+              <p className="text-lg md:text-xl font-bold text-primary mb-4">
                 ${product.price}
               </p>
               <Button className="w-full gap-2">
