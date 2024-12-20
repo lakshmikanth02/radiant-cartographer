@@ -156,7 +156,7 @@ const categories = [
 
 export function SecondaryHeader() {
   return (
-    <div className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <div className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 relative z-50">
       <NavigationMenu className="container mx-auto">
         <NavigationMenuList className="flex h-14 items-center gap-6 overflow-x-auto">
           {categories.map((category) => (
@@ -165,7 +165,7 @@ export function SecondaryHeader() {
                 <category.icon className="h-4 w-4" />
                 {category.name}
               </NavigationMenuTrigger>
-              <NavigationMenuContent className="z-[100] bg-popover">
+              <NavigationMenuContent className="absolute z-[100] bg-popover">
                 <div className="grid grid-cols-3 gap-6 p-6 w-[800px]">
                   {category.subcategories.map((subcategory) => (
                     <div key={subcategory.name} className="space-y-2">

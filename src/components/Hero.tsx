@@ -31,7 +31,7 @@ export function Hero() {
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
 
   return (
-    <div className="relative h-[400px] w-screen -mx-[50vw] left-1/2 right-1/2">
+    <div className="relative h-[400px] w-screen -mx-[50vw] left-1/2 right-1/2 z-0">
       {slides.map((slide, index) => (
         <div
           key={slide.id}
