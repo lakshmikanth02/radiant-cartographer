@@ -156,17 +156,17 @@ const categories = [
 
 export function SecondaryHeader() {
   return (
-    <div className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 relative z-50">
+    <div className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-[200]">
       <NavigationMenu className="container mx-auto">
-        <NavigationMenuList className="flex h-14 items-center gap-6 overflow-x-auto">
+        <NavigationMenuList className="flex h-14 items-center gap-6 overflow-x-auto scrollbar-hide px-4 md:px-6">
           {categories.map((category) => (
-            <NavigationMenuItem key={category.name}>
+            <NavigationMenuItem key={category.name} className="flex-shrink-0">
               <NavigationMenuTrigger className="flex items-center gap-2 text-sm font-medium transition-colors hover:text-primary text-muted-foreground">
                 <category.icon className="h-4 w-4" />
                 {category.name}
               </NavigationMenuTrigger>
-              <NavigationMenuContent className="absolute z-[100] bg-popover">
-                <div className="grid grid-cols-3 gap-6 p-6 w-[800px]">
+              <NavigationMenuContent className="absolute z-[300] bg-popover">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4 md:p-6 w-[280px] md:w-[800px]">
                   {category.subcategories.map((subcategory) => (
                     <div key={subcategory.name} className="space-y-2">
                       <h3 className="font-medium text-sm">{subcategory.name}</h3>
