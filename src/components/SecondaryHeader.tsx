@@ -167,23 +167,24 @@ export function SecondaryHeader() {
                   {category.name}
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="absolute left-0 w-full bg-popover shadow-lg rounded-md border">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4 md:p-6 w-[280px] md:w-[800px] max-h-[80vh] overflow-y-auto">
+                  <div className="absolute left-0 w-full bg-popover shadow-lg rounded-b-xl border">
+                    <div className="relative grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-6 p-6 w-[280px] md:w-[800px] max-h-[80vh] overflow-y-auto">
                       {category.subcategories.map((subcategory) => (
-                        <div key={subcategory.name} className="space-y-2">
-                          <h3 className="font-medium text-sm">{subcategory.name}</h3>
-                          <ul className="space-y-1">
+                        <div key={subcategory.name} className="group relative">
+                          <h3 className="font-semibold text-sm mb-4">{subcategory.name}</h3>
+                          <ul className="mt-1 space-y-2">
                             {subcategory.items.map((item) => (
                               <li key={item}>
                                 <a
                                   href={`#${category.name.toLowerCase()}-${item.toLowerCase()}`}
-                                  className="block text-sm text-muted-foreground hover:text-primary py-1"
+                                  className="block text-sm text-muted-foreground hover:text-primary transition-colors duration-200 py-1 group-hover:translate-x-1"
                                 >
                                   {item}
                                 </a>
                               </li>
                             ))}
                           </ul>
+                          <div className="absolute inset-y-0 right-0 w-px bg-border group-last:hidden" />
                         </div>
                       ))}
                     </div>
