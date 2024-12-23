@@ -156,9 +156,9 @@ const categories = [
 
 export function SecondaryHeader() {
   return (
-    <div className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
-      <div className="container mx-auto overflow-hidden relative">
-        <NavigationMenu className="relative">
+    <div className="w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container mx-auto">
+        <NavigationMenu>
           <NavigationMenuList className="flex h-14 items-center gap-6 overflow-x-auto scrollbar-hide px-4 md:px-6">
             {categories.map((category) => (
               <NavigationMenuItem key={category.name} className="flex-shrink-0">
@@ -166,25 +166,27 @@ export function SecondaryHeader() {
                   <category.icon className="h-4 w-4" />
                   {category.name}
                 </NavigationMenuTrigger>
-                <NavigationMenuContent className="absolute z-[9999] bg-popover shadow-lg rounded-md border">
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4 md:p-6 w-[280px] md:w-[800px] max-h-[80vh] overflow-y-auto">
-                    {category.subcategories.map((subcategory) => (
-                      <div key={subcategory.name} className="space-y-2">
-                        <h3 className="font-medium text-sm">{subcategory.name}</h3>
-                        <ul className="space-y-1">
-                          {subcategory.items.map((item) => (
-                            <li key={item}>
-                              <a
-                                href={`#${category.name.toLowerCase()}-${item.toLowerCase()}`}
-                                className="block text-sm text-muted-foreground hover:text-primary py-1"
-                              >
-                                {item}
-                              </a>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    ))}
+                <NavigationMenuContent>
+                  <div className="absolute left-0 w-full bg-popover shadow-lg rounded-md border">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4 md:p-6 w-[280px] md:w-[800px] max-h-[80vh] overflow-y-auto">
+                      {category.subcategories.map((subcategory) => (
+                        <div key={subcategory.name} className="space-y-2">
+                          <h3 className="font-medium text-sm">{subcategory.name}</h3>
+                          <ul className="space-y-1">
+                            {subcategory.items.map((item) => (
+                              <li key={item}>
+                                <a
+                                  href={`#${category.name.toLowerCase()}-${item.toLowerCase()}`}
+                                  className="block text-sm text-muted-foreground hover:text-primary py-1"
+                                >
+                                  {item}
+                                </a>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </NavigationMenuContent>
               </NavigationMenuItem>
