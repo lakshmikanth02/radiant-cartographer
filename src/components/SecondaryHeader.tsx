@@ -11,38 +11,40 @@ const categories = [
   {
     name: "Laptops",
     icon: Laptop,
-    subcategories: [
+    featured: [
       {
-        name: "By Brand",
-        items: ["Apple", "Dell", "HP", "Lenovo", "Asus", "Acer", "Microsoft", "MSI", "Razer", "Samsung"]
+        title: "MacBook Pro",
+        href: "#",
+        description: "Experience the power of Apple's latest M2 chip",
+        image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3"
       },
       {
-        name: "By Type",
-        items: ["Gaming", "Business", "Student", "Ultrabook", "2-in-1", "Budget", "Premium", "Workstation", "Chromebook", "Netbook"]
-      },
-      {
-        name: "By Size",
-        items: ["11-inch", "13-inch", "14-inch", "15-inch", "16-inch", "17-inch", "Compact", "Large Screen", "Portable", "Desktop Replacement"]
+        title: "Gaming Laptops",
+        href: "#",
+        description: "Ultimate performance for gaming enthusiasts",
+        image: "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3"
       }
-    ]
+    ],
+    subcategories: ["Gaming", "Business", "Student", "Ultrabook", "2-in-1", "Budget", "Premium", "Workstation"]
   },
   {
     name: "Phones",
     icon: Smartphone,
-    subcategories: [
+    featured: [
       {
-        name: "By Brand",
-        items: ["Apple", "Samsung", "Google", "OnePlus", "Xiaomi", "Oppo", "Vivo", "Huawei", "Motorola", "Sony"]
+        title: "iPhone 15 Pro",
+        href: "#",
+        description: "The most powerful iPhone ever",
+        image: "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3"
       },
       {
-        name: "By Type",
-        items: ["Flagship", "Mid-range", "Budget", "Gaming", "Camera-focused", "Business", "Rugged", "Foldable", "5G", "Compact"]
-      },
-      {
-        name: "By Features",
-        items: ["5G Ready", "Wireless Charging", "Fast Charging", "High Refresh Rate", "Water Resistant", "Dual SIM", "Large Battery", "NFC", "Face ID", "In-display Fingerprint"]
+        title: "Samsung Galaxy",
+        href: "#",
+        description: "Experience the next generation of Android",
+        image: "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3"
       }
-    ]
+    ],
+    subcategories: ["Flagship", "Mid-range", "Budget", "Gaming", "Camera-focused", "Business", "Foldable", "5G"]
   },
   {
     name: "Watches",
@@ -159,34 +161,56 @@ export function SecondaryHeader() {
     <div className="w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto">
         <NavigationMenu>
-          <NavigationMenuList className="flex h-14 items-center gap-6 overflow-x-auto scrollbar-hide px-4 md:px-6">
+          <NavigationMenuList className="flex h-14 items-center gap-6 px-4 md:px-6">
             {categories.map((category) => (
-              <NavigationMenuItem key={category.name} className="flex-shrink-0">
-                <NavigationMenuTrigger className="flex items-center gap-2 text-sm font-medium transition-colors hover:text-primary text-muted-foreground">
-                  <category.icon className="h-4 w-4" />
+              <NavigationMenuItem key={category.name}>
+                <NavigationMenuTrigger className="flex items-center gap-2 text-sm font-medium transition-colors hover:text-primary group">
+                  <category.icon className="h-4 w-4 transition-transform group-hover:scale-110" />
                   {category.name}
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="absolute left-0 w-full bg-popover shadow-lg rounded-b-xl border">
-                    <div className="relative grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-6 p-6 w-[280px] md:w-[800px] max-h-[80vh] overflow-y-auto">
-                      {category.subcategories.map((subcategory) => (
-                        <div key={subcategory.name} className="group relative">
-                          <h3 className="font-semibold text-sm mb-4">{subcategory.name}</h3>
-                          <ul className="mt-1 space-y-2">
-                            {subcategory.items.map((item) => (
-                              <li key={item}>
-                                <a
-                                  href={`#${category.name.toLowerCase()}-${item.toLowerCase()}`}
-                                  className="block text-sm text-muted-foreground hover:text-primary transition-colors duration-200 py-1 group-hover:translate-x-1"
-                                >
-                                  {item}
-                                </a>
-                              </li>
-                            ))}
-                          </ul>
-                          <div className="absolute inset-y-0 right-0 w-px bg-border group-last:hidden" />
-                        </div>
-                      ))}
+                  <div className="w-[500px] lg:w-[800px] p-6 grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div className="space-y-4">
+                      <h3 className="text-lg font-semibold">Featured</h3>
+                      <div className="grid grid-cols-2 gap-4">
+                        {category.featured.map((item) => (
+                          <a
+                            key={item.title}
+                            href={item.href}
+                            className="group block space-y-2"
+                          >
+                            <div className="aspect-video overflow-hidden rounded-lg">
+                              <img
+                                src={item.image}
+                                alt={item.title}
+                                className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
+                              />
+                            </div>
+                            <div>
+                              <h4 className="text-sm font-medium group-hover:text-primary transition-colors">
+                                {item.title}
+                              </h4>
+                              <p className="text-xs text-muted-foreground">
+                                {item.description}
+                              </p>
+                            </div>
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold mb-4">Categories</h3>
+                      <div className="grid grid-cols-2 gap-2">
+                        {category.subcategories.map((subcat) => (
+                          <a
+                            key={subcat}
+                            href={`#${category.name.toLowerCase()}-${subcat.toLowerCase()}`}
+                            className="text-sm text-muted-foreground hover:text-primary transition-colors py-1 px-2 rounded-md hover:bg-accent"
+                          >
+                            {subcat}
+                          </a>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </NavigationMenuContent>
