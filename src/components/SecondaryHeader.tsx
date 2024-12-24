@@ -159,20 +159,22 @@ const categories = [
 export function SecondaryHeader() {
   return (
     <div className="w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container mx-auto max-w-[1400px]">
-        <NavigationMenu>
-          <NavigationMenuList className="flex h-14 items-center gap-6 px-4 md:px-6">
-            {categories.map((category) => (
-              <NavigationMenuItem key={category.name}>
-                <CategoryTrigger icon={category.icon} name={category.name} />
-                <CategoryFeatured 
-                  featured={category.featured} 
-                  subcategories={category.subcategories} 
-                />
-              </NavigationMenuItem>
-            ))}
-          </NavigationMenuList>
-        </NavigationMenu>
+      <div className="container mx-auto max-w-[1400px] overflow-hidden">
+        <div className="overflow-x-auto no-scrollbar">
+          <NavigationMenu className="w-full">
+            <NavigationMenuList className="flex h-14 items-center gap-6 px-4 md:px-6 whitespace-nowrap">
+              {categories.map((category) => (
+                <NavigationMenuItem key={category.name}>
+                  <CategoryTrigger icon={category.icon} name={category.name} />
+                  <CategoryFeatured 
+                    featured={category.featured} 
+                    subcategories={category.subcategories} 
+                  />
+                </NavigationMenuItem>
+              ))}
+            </NavigationMenuList>
+          </NavigationMenu>
+        </div>
       </div>
     </div>
   )
