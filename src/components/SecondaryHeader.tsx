@@ -158,7 +158,7 @@ const categories = [
 
 export function SecondaryHeader() {
   return (
-    <div className="w-full border-b bg-[#1f2a38]">
+    <div className="w-full border-b bg-white dark:bg-[#1f2a38]">
       <div className="container mx-auto max-w-[1400px]">
         <NavigationMenu>
           <NavigationMenuList className="flex h-14 items-center gap-6 px-4 md:px-6">

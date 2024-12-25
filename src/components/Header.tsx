@@ -10,7 +10,7 @@ export function Header() {
 
   return (
     <div className="sticky top-0 z-50">
-      <header className="w-full border-b bg-[#1f2a38]">
+      <header className="w-full border-b bg-white dark:bg-[#1f2a38]">
         <div className="container flex h-16 items-center justify-between">
           <div className="flex items-center gap-4 md:gap-8">
             {isMobile && (
