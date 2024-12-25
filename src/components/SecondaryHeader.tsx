@@ -158,12 +158,12 @@ const categories = [
 
 export function SecondaryHeader() {
   return (
-    <div className="w-full border-b bg-background">
+    <div className="w-full border-b bg-[#1f2a38]">
       <div className="container mx-auto max-w-[1400px]">
         <NavigationMenu>
           <NavigationMenuList className="flex h-14 items-center gap-6 px-4 md:px-6">
             {categories.map((category) => (
-              <NavigationMenuItem key={category.name}>
+              <NavigationMenuItem key={category.name} className="text-white">
                 <CategoryTrigger icon={category.icon} name={category.name} />
                 <CategoryFeatured 
                   featured={category.featured} 
