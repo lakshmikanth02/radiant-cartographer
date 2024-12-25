@@ -15,7 +15,7 @@ interface CategoryFeaturedProps {
 export function CategoryFeatured({ featured, subcategories }: CategoryFeaturedProps) {
   return (
     <NavigationMenuContent>
-      <div className="w-[90vw] md:w-[600px] lg:w-[800px] p-4 md:p-6">
+      <div className="w-[90vw] md:w-[600px] lg:w-[800px] p-4 md:p-6 dark:bg-[#1f2a38]">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 max-h-[70vh] overflow-y-auto scrollbar-hide">
           <div className="space-y-4">
             <h3 className="text-lg font-semibold">Featured</h3>

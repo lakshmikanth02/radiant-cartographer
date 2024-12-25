@@ -10,7 +10,7 @@ export function Header() {
 
   return (
     <div className="sticky top-0 z-50">
-      <header className="w-full border-b bg-white dark:bg-[#1f2a38]">
+      <header className="w-full bg-white dark:bg-[#1f2a38]">
         <div className="container flex h-16 items-center justify-between">
           <div className="flex items-center gap-4 md:gap-8">
             {isMobile && (
@@ -45,7 +45,7 @@ export function Header() {
                 </SheetContent>
               </Sheet>
             )}
-            <a href="/" className="text-xl md:text-2xl font-bold text-white">
+            <a href="/" className="text-xl md:text-2xl font-bold dark:text-white">
               Store
             </a>
           </div>
@@ -55,20 +55,21 @@ export function Header() {
               <input
                 type="search"
                 placeholder="Search products..."
-                className="w-full h-10 px-4 pr-10 rounded-full bg-white/10 focus:outline-none focus:ring-2 focus:ring-primary text-white placeholder:text-white/70"
+                className="w-full h-10 px-4 pr-10 rounded-full dark:bg-white/10  dark:text-white dark:placeholder:text-white/70 border border-gray-500 focus:border-gray-100 dark:focus:border-gray-800"
               />
-              <Search className="absolute right-3 top-2.5 h-5 w-5 text-white/70" />
+
+              <Search className="absolute right-3 top-2.5 h-5 w-5 dark:text-white/70" />
             </div>
           </div>
           
           <div className="flex items-center gap-2 md:gap-4">
             {isMobile && (
-              <Button variant="ghost" size="icon" className="text-white">
+              <Button variant="ghost" size="icon" className="dark:text-white">
                 <Search className="h-5 w-5" />
               </Button>
             )}
             <ThemeToggle />
-            <Button variant="ghost" className="hidden md:inline-flex text-white hover:text-white/90">Sign In</Button>
+            <Button variant="ghost" className="hidden md:inline-flex dark:text-white dark:hover:text-white/90">Sign In</Button>
             <Button className="hidden md:inline-flex">Sign Up</Button>
           </div>
         </div>
