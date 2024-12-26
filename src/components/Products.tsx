@@ -143,7 +143,7 @@ export function Products() {
             {budgetProducts.items.map((item) => (
               <Card 
                 key={item.id} 
-                className="group cursor-pointer overflow-hidden border-0 shadow-sm flex-shrink-0 w-[200px]"
+                className="group cursor-pointer overflow-hidden border-0 shadow-sm flex-shrink-0 w-[200px] bg-white dark:bg-[#1f2a38]"
               >
                 <div className="aspect-square overflow-hidden">
                   <img
@@ -168,7 +168,7 @@ export function Products() {
 
       {/* Existing Product Sections */}
       {products.map((category) => (
-        <section key={category.id} className="bg-white dark:bg-gray-800 rounded-xl p-4">
+        <section key={category.id} className="bg-white dark:bg-[#1f2a38] rounded-xl p-4">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-xl font-bold">{category.name}</h2>
             <Button variant="ghost" size="sm" className="gap-1">
@@ -178,7 +178,7 @@ export function Products() {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {category.items.map((item) => (
-              <Card key={item.id} className="group cursor-pointer overflow-hidden border-0 shadow-sm">
+              <Card key={item.id} className="group cursor-pointer overflow-hidden border-0 shadow-sm bg-white dark:bg-[#1f2a38]">
                 <div className="aspect-square overflow-hidden">
                   <img
                     src={item.image}
